@@ -66,6 +66,13 @@ def play():
     add_card(shuffled_deck)
     add_card(shuffled_deck)
 
+    # It is possible for the two cards initially dealt to a player to already total to more than 21
+    # So, we need to add an if statement here to catch that scenario, and gracefully exit
+
+    if player_hand.running_total() > 21:
+        print("Oh no! Your hand already totals more than 21. Unlucky. You can try again though.")
+        sys.exit()
+
     # Now loop through hit or stand until the player decides to stop, or hits 21.
 
     while True:
