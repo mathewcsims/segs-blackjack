@@ -57,7 +57,7 @@ def shuffle(initial_deck):
 def starting_hand(deck, hand_size=2):  # `hand_size` is here to facilitate game variations being added later
     hand = Hand()
     n = 1
-    while n < hand_size:
+    while n <= hand_size:
         dealt_card = deck.pop()
         print("You were dealt the", dealt_card["Name"], "of", dealt_card["Suit"], ".")
         n += 1
