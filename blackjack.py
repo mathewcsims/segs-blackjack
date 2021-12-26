@@ -29,9 +29,13 @@ def play():
 
     # It is possible for the two cards initially dealt to a player to already total to more than 21
     # So, we need to add an if statement here to catch that scenario, and gracefully exit
+    # Not forgetting this also means the player could win right away, so let's catch that too
 
     if player_hand.running_total() > target:
         print("Oh no! Your hand already totals more than 21. Unlucky. You can try again though.")
+        sys.exit()
+    elif player_hand.running_total() == target:
+        print("CONGRATULATIONS! You scored 21 exactly!")
         sys.exit()
 
     # Now loop through hit or stand until the player decides to stop, or hits 21.
@@ -39,9 +43,10 @@ def play():
     # If more variations of the game were created, it would make sense to separate this into some module
 
     while True:
+        print("\n\nLet's start playing!")
         print("Your current hand is:")
         for card in player_hand.list_cards():
-            print(card)
+            print(" - " + card)
         print("And your running total is", player_hand.running_total(), "\n")
         keep_playing = input("Would you like to hit or stand (enter 'h' or 's')?\n")
         if keep_playing == "s":

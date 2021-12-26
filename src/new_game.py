@@ -59,8 +59,9 @@ def starting_hand(deck, hand_size=2):  # `hand_size` is here to facilitate game 
     n = 1
     while n <= hand_size:
         dealt_card = deck.pop()
-        print("You were dealt the", dealt_card["Name"], "of", dealt_card["Suit"], ".")
+        print("You were dealt the", dealt_card["Name"], "of", dealt_card["Suit"] + ".")
+        hand.push(dealt_card)
         n += 1
-    print("The total if your starting hand is", )
+    print("The total if your starting hand is", str(hand.running_total()) + ".")  # str() b/c TypeError on concat
     return hand
 
